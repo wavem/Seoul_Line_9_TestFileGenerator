@@ -74,7 +74,7 @@
 #include "cxMemo.hpp"
 #include "cxTextEdit.hpp"
 //---------------------------------------------------------------------------
-class TForm1 : public TForm
+class TFormMain : public TForm
 {
 __published:	// IDE-managed Components
 	TdxRibbonTab *MainMenuTab1;
@@ -88,9 +88,15 @@ __published:	// IDE-managed Components
 	TcxMemo *memo;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm1(TComponent* Owner);
+	__fastcall TFormMain(TComponent* Owner);
+
+
+public: // START
+	void __fastcall InitProgram();
+    void __fastcall ExitProgram();
+    void __fastcall PrintMsg();
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm1 *Form1;
+extern PACKAGE TFormMain *FormMain;
 //---------------------------------------------------------------------------
 #endif
