@@ -77,11 +77,18 @@ TFormMain *FormMain;
 __fastcall TFormMain::TFormMain(TComponent* Owner)
 	: TForm(Owner)
 {
+	InitProgram();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormMain::InitProgram() {
 
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMain::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	ExitProgram();
 }
 //---------------------------------------------------------------------------
 
@@ -94,3 +101,4 @@ void __fastcall TFormMain::PrintMsg() {
 
 }
 //---------------------------------------------------------------------------
+

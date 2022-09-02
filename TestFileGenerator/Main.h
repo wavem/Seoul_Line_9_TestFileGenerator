@@ -86,6 +86,7 @@ __published:	// IDE-managed Components
 	TdxBarLargeButton *dxBarLargeButton1;
 	TdxBarLargeButton *dxBarLargeButton2;
 	TcxMemo *memo;
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);
