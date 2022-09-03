@@ -83,8 +83,8 @@ __published:	// IDE-managed Components
 	TPanel *___pnBase;
 	TdxBarManager *BarMgr;
 	TdxBar *BarMgrBar1;
-	TdxBarLargeButton *dxBarLargeButton1;
-	TdxBarLargeButton *dxBarLargeButton2;
+	TdxBarLargeButton *btn_Open_Opdata;
+	TdxBarLargeButton *btn_Open_Fault;
 	TcxMemo *memo;
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
@@ -95,7 +95,7 @@ public:		// User declarations
 public: // START
 	void __fastcall InitProgram();
     void __fastcall ExitProgram();
-    void __fastcall PrintMsg();
+    void __fastcall PrintMsg(UnicodeString _str);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFormMain *FormMain;

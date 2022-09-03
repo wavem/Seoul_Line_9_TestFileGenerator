@@ -97,8 +97,7 @@ void __fastcall TFormMain::ExitProgram() {
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormMain::PrintMsg() {
-
+void __fastcall TFormMain::PrintMsg(UnicodeString _str) {
+	int t_Idx = memo->Lines->Add(_str);
 }
 //---------------------------------------------------------------------------
-

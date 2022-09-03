@@ -72,6 +72,9 @@ object FormMain: TFormMain
         object memo: TcxMemo
           Left = 16
           Top = 16
+          Properties.ReadOnly = True
+          Properties.ScrollBars = ssVertical
+          Style.Color = clSilver
           TabOrder = 0
           Height = 297
           Width = 447
@@ -111,11 +114,11 @@ object FormMain: TFormMain
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'dxBarLargeButton1'
+          ItemName = 'btn_Open_Opdata'
         end
         item
           Visible = True
-          ItemName = 'dxBarLargeButton2'
+          ItemName = 'btn_Open_Fault'
         end>
       OneOnRow = True
       Row = 0
@@ -123,7 +126,7 @@ object FormMain: TFormMain
       Visible = True
       WholeRow = False
     end
-    object dxBarLargeButton1: TdxBarLargeButton
+    object btn_Open_Opdata: TdxBarLargeButton
       Caption = 'Opdata'
       Category = 0
       Hint = 'Opdata'
@@ -261,7 +264,7 @@ object FormMain: TFormMain
         0000000000000000000000000000000000000000000000000000}
       Width = 60
     end
-    object dxBarLargeButton2: TdxBarLargeButton
+    object btn_Open_Fault: TdxBarLargeButton
       Caption = 'Fault'
       Category = 0
       Hint = 'Fault'
