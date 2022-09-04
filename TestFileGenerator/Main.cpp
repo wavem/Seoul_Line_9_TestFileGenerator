@@ -71,6 +71,9 @@
 #pragma link "cxEdit"
 #pragma link "cxMemo"
 #pragma link "cxTextEdit"
+#pragma link "FolderDialog"
+#pragma link "TaskDialog"
+#pragma link "TaskDialogEx"
 #pragma resource "*.dfm"
 TFormMain *FormMain;
 //---------------------------------------------------------------------------
@@ -101,3 +104,13 @@ void __fastcall TFormMain::PrintMsg(UnicodeString _str) {
 	int t_Idx = memo->Lines->Add(_str);
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TFormMain::btn_Open_OpdataClick(TObject *Sender)
+{
+	FileOpenDialog->Execute();
+
+
+}
+//---------------------------------------------------------------------------
+
+

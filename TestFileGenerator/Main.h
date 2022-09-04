@@ -73,6 +73,10 @@
 #include "cxEdit.hpp"
 #include "cxMemo.hpp"
 #include "cxTextEdit.hpp"
+#include "FolderDialog.hpp"
+#include "TaskDialog.hpp"
+#include "TaskDialogEx.hpp"
+#include <Vcl.Dialogs.hpp>
 //---------------------------------------------------------------------------
 class TFormMain : public TForm
 {
@@ -86,7 +90,9 @@ __published:	// IDE-managed Components
 	TdxBarLargeButton *btn_Open_Opdata;
 	TdxBarLargeButton *btn_Open_Fault;
 	TcxMemo *memo;
+	TFileOpenDialog *FileOpenDialog;
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall btn_Open_OpdataClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);

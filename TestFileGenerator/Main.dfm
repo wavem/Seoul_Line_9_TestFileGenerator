@@ -4,7 +4,7 @@ object FormMain: TFormMain
   BorderStyle = bsDialog
   Caption = 'Test File Generator'
   ClientHeight = 455
-  ClientWidth = 476
+  ClientWidth = 478
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object FormMain: TFormMain
   object MainMenu: TdxRibbon
     Left = 0
     Top = 0
-    Width = 476
+    Width = 478
     Height = 124
     BarManager = BarMgr
     Style = rs2016
@@ -28,6 +28,7 @@ object FormMain: TFormMain
     Contexts = <>
     TabOrder = 0
     TabStop = False
+    ExplicitWidth = 476
     object MainMenuTab1: TdxRibbonTab
       Active = True
       Caption = 'MainMenuTab1'
@@ -41,7 +42,7 @@ object FormMain: TFormMain
   object Notebook_Main: TNotebook
     Left = 0
     Top = 124
-    Width = 476
+    Width = 478
     Height = 331
     Align = alClient
     TabOrder = 1
@@ -58,7 +59,7 @@ object FormMain: TFormMain
       object ___pnBase: TPanel
         Left = 0
         Top = 0
-        Width = 476
+        Width = 478
         Height = 331
         Align = alClient
         BevelOuter = bvNone
@@ -96,7 +97,7 @@ object FormMain: TFormMain
       True)
     PopupMenuLinks = <>
     UseSystemFont = True
-    Left = 480
+    Left = 176
     Top = 1
     DockControlHeights = (
       0
@@ -131,6 +132,7 @@ object FormMain: TFormMain
       Category = 0
       Hint = 'Opdata'
       Visible = ivAlways
+      OnClick = btn_Open_OpdataClick
       HotGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
         2000000000000010000000000000000000000000000000000000000000000000
@@ -402,5 +404,12 @@ object FormMain: TFormMain
         0000000000000000000000000000000000000000000000000000}
       Width = 60
     end
+  end
+  object FileOpenDialog: TFileOpenDialog
+    FavoriteLinks = <>
+    FileTypes = <>
+    Options = []
+    Left = 204
+    Top = 1
   end
 end
