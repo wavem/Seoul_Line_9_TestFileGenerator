@@ -108,9 +108,12 @@ void __fastcall TFormMain::PrintMsg(UnicodeString _str) {
 void __fastcall TFormMain::btn_Open_OpdataClick(TObject *Sender)
 {
 	FileOpenDialog->Execute();
-
-
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormMain::FileOpenDialogFileOkClick(TObject *Sender, bool &CanClose)
+{
+	PrintMsg(FileOpenDialog->FileName);
+}
+//---------------------------------------------------------------------------
 

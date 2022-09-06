@@ -93,6 +93,7 @@ __published:	// IDE-managed Components
 	TFileOpenDialog *FileOpenDialog;
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall btn_Open_OpdataClick(TObject *Sender);
+	void __fastcall FileOpenDialogFileOkClick(TObject *Sender, bool &CanClose);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);

@@ -409,6 +409,7 @@ object FormMain: TFormMain
     FavoriteLinks = <>
     FileTypes = <>
     Options = []
+    OnFileOkClick = FileOpenDialogFileOkClick
     Left = 204
     Top = 1
   end
