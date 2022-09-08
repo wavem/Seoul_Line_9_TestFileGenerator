@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Main.h"
+#include <stdio.h>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxClasses"
@@ -113,7 +114,32 @@ void __fastcall TFormMain::btn_Open_OpdataClick(TObject *Sender)
 
 void __fastcall TFormMain::FileOpenDialogFileOkClick(TObject *Sender, bool &CanClose)
 {
-	PrintMsg(FileOpenDialog->FileName);
+	UnicodeString t_FilePath = FileOpenDialog->FileName;
+	PrintMsg(t_FilePath);
+    OpenOpdata(t_FilePath);
+}
+//---------------------------------------------------------------------------
+
+bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
+
+	// Common
+    UnicodeString tempStr = L"";
+	FILE* p_File = NULL;
+    AnsiString t_AnsiStr = _path;
+    int t_FileSize = 0;
+
+
+    // File Open Routine
+    fopen_s(&p_File, t_AnsiStr.c_str(), "rb");
+    if(p_File == NULL) {
+        PrintMsg(L"File Open Failed..");
+        return false;
+    }
+
+    fseek(p_File, 0, SEEK_END);
+    t_FileSize = ftell(p_File);
+    tempStr.sprintf(L"File Size : %d", t_FileSize);
+    PrintMsg(tempStr);
 }
 //---------------------------------------------------------------------------
 

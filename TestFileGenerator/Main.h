@@ -103,6 +103,9 @@ public: // START
 	void __fastcall InitProgram();
     void __fastcall ExitProgram();
     void __fastcall PrintMsg(UnicodeString _str);
+
+public: // FUNC
+	bool __fastcall OpenOpdata(UnicodeString _path);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFormMain *FormMain;
