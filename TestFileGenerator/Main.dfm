@@ -29,7 +29,6 @@ object FormMain: TFormMain
     Contexts = <>
     TabOrder = 0
     TabStop = False
-    ExplicitWidth = 476
     object MainMenuTab1: TdxRibbonTab
       Active = True
       Caption = 'MainMenuTab1'
@@ -47,16 +46,10 @@ object FormMain: TFormMain
     Height = 331
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 56
-    ExplicitTop = 64
-    ExplicitWidth = 150
-    ExplicitHeight = 150
     object TPage
       Left = 0
       Top = 0
       Caption = 'Default'
-      ExplicitWidth = 150
-      ExplicitHeight = 150
       object ___pnBase: TPanel
         Left = 0
         Top = 0
@@ -67,10 +60,6 @@ object FormMain: TFormMain
         Color = 3881787
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 176
-        ExplicitTop = 88
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object memo: TcxMemo
           Left = 16
           Top = 16

@@ -124,22 +124,81 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
 
 	// Common
     UnicodeString tempStr = L"";
-	FILE* p_File = NULL;
+	FILE* p_FileR = NULL;
+    FILE* p_FileW = NULL;
     AnsiString t_AnsiStr = _path;
-    int t_FileSize = 0;
+    int t_ReadFileSize = 0;
+    int t_WriteFileSize = 0;
+    int t_ReadBlockCnt = 0;
+    BYTE *p_ReadBuffer = NULL;
+    BYTE *p_WriteBuffer = NULL;
+
 
 
     // File Open Routine
-    fopen_s(&p_File, t_AnsiStr.c_str(), "rb");
-    if(p_File == NULL) {
+    fopen_s(&p_FileR, t_AnsiStr.c_str(), "rb");
+    if(p_FileR == NULL) {
         PrintMsg(L"File Open Failed..");
         return false;
     }
 
-    fseek(p_File, 0, SEEK_END);
-    t_FileSize = ftell(p_File);
-    tempStr.sprintf(L"File Size : %d", t_FileSize);
+    // Get File Size
+    fseek(p_FileR, 0, SEEK_END);
+    t_ReadFileSize = ftell(p_FileR);
+    tempStr.sprintf(L"File Size : %d", t_ReadFileSize);
     PrintMsg(tempStr);
+
+    // Memory Allocate
+    p_ReadBuffer = new BYTE[t_ReadFileSize];
+
+    // File Read
+    fseek(p_FileR, 0, SEEK_SET);
+    t_ReadFileSize = fread(p_ReadBuffer, 1, t_ReadFileSize, p_FileR);
+    tempStr.sprintf(L"Reading Size : %d", t_ReadFileSize);
+    PrintMsg(tempStr);
+
+	// Get Block Count (Read File)
+    t_ReadBlockCnt = t_ReadFileSize / 24; // 24 is one block size
+    tempStr.sprintf(L"Block Count : %d", t_ReadBlockCnt);
+    PrintMsg(tempStr);
+
+    // Set Write File Size
+    t_WriteFileSize = t_ReadBlockCnt * 120;
+
+    // Memory Allocate
+    p_WriteBuffer = new BYTE[t_WriteFileSize];
+
+    // File Making Routine
+    for(int i = 0 ; i < t_ReadBlockCnt ; i++) {
+        memcpy(&(p_WriteBuffer[i * 120]), &(p_ReadBuffer[i * 24 + 18]), 6);
+    }
+
+    // File Write Routine
+    t_AnsiStr += "maked";
+    fopen_s(&p_FileW, t_AnsiStr.c_str(), "wb");
+    if(p_FileW == NULL) {
+        PrintMsg(L"Write File Open Failed..");
+        return false;
+    }
+
+    fwrite(p_WriteBuffer, 1, t_WriteFileSize, p_FileW);
+
+
+
+
+
+
+
+
+
+
+
+    // Clean Memory
+
+    fclose(p_FileR);
+    fclose(p_FileW);
+    delete []p_ReadBuffer;
+    delete []p_WriteBuffer;
 }
 //---------------------------------------------------------------------------
 
