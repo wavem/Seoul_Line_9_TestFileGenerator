@@ -170,11 +170,17 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
 
     // File Making Routine
     for(int i = 0 ; i < t_ReadBlockCnt ; i++) {
+    	// Time Info
         memcpy(&(p_WriteBuffer[i * 120]), &(p_ReadBuffer[i * 24 + 18]), 6);
+
+        // Fault Contents
+        memcpy(&(p_WriteBuffer[i * 120 + 6]), &(p_ReadBuffer[i * 24]), 18);
+
+        // IO...
     }
 
     // File Write Routine
-    t_AnsiStr += "maked";
+    t_AnsiStr += "-Remaked";
     fopen_s(&p_FileW, t_AnsiStr.c_str(), "wb");
     if(p_FileW == NULL) {
         PrintMsg(L"Write File Open Failed..");
