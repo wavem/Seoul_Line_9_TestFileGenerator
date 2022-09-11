@@ -87,6 +87,8 @@ __fastcall TFormMain::TFormMain(TComponent* Owner)
 
 void __fastcall TFormMain::InitProgram() {
 
+	// For Generating Random Number
+    srand((unsigned int)GetTickCount());
 }
 //---------------------------------------------------------------------------
 
@@ -132,6 +134,7 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
     int t_ReadBlockCnt = 0;
     BYTE *p_ReadBuffer = NULL;
     BYTE *p_WriteBuffer = NULL;
+    BYTE t_RandomData[96] = {0, };
 
 
 
@@ -177,6 +180,10 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
         memcpy(&(p_WriteBuffer[i * 120 + 6]), &(p_ReadBuffer[i * 24]), 18);
 
         // IO...
+        for(int j = 0 ; j < 96 ; j++) {
+            t_RandomData[j] = rand() % 255;
+        }
+        memcpy(&(p_WriteBuffer[i * 120 + 24]), t_RandomData, 96);
     }
 
     // File Write Routine
