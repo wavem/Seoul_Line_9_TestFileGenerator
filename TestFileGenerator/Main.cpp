@@ -136,8 +136,6 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
     BYTE *p_WriteBuffer = NULL;
     BYTE t_RandomData[96] = {0, };
 
-
-
     // File Open Routine
     fopen_s(&p_FileR, t_AnsiStr.c_str(), "rb");
     if(p_FileR == NULL) {
@@ -193,21 +191,9 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
         PrintMsg(L"Write File Open Failed..");
         return false;
     }
-
     fwrite(p_WriteBuffer, 1, t_WriteFileSize, p_FileW);
 
-
-
-
-
-
-
-
-
-
-
-    // Clean Memory
-
+    // Exit Routine (Clean Memory)
     fclose(p_FileR);
     fclose(p_FileW);
     delete []p_ReadBuffer;
