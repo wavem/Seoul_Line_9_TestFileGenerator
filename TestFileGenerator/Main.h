@@ -94,6 +94,7 @@ __published:	// IDE-managed Components
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall btn_Open_OpdataClick(TObject *Sender);
 	void __fastcall FileOpenDialogFileOkClick(TObject *Sender, bool &CanClose);
+	void __fastcall btn_Open_FaultClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);
@@ -106,6 +107,7 @@ public: // START
 
 public: // FUNC
 	bool __fastcall OpenOpdata(UnicodeString _path);
+    bool __fastcall OpenFaultdata(UnicodeString _path);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFormMain *FormMain;

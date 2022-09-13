@@ -201,3 +201,15 @@ bool __fastcall TFormMain::OpenOpdata(UnicodeString _path) {
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormMain::btn_Open_FaultClick(TObject *Sender)
+{
+
+	OpenFaultdata(L"test");
+}
+//---------------------------------------------------------------------------
+
+bool __fastcall TFormMain::OpenFaultdata(UnicodeString _path) {
+
+}
+//---------------------------------------------------------------------------
+
